@@ -1,6 +1,12 @@
 package lab1.task12;
 
 import java.util.Scanner;
+/**
+ * The Java Development Kit includes a file src.zip with the source code of the Java library.
+ * Unzip and, with your favorite text search tool, find usages of the labeled break and continue sequences.
+ * Take one and rewrite it without a labeled statement.
+ */
+
 public class BreakLab {
     private static final int BRACE = 30;
     // label_1:

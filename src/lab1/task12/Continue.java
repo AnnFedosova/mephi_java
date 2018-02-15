@@ -1,52 +1,51 @@
 package lab1.task12;
 
 import java.util.Scanner;
-public class Continue {
-    private static final int BRACE = 30;
-    // label_1:
-// while (true) {
-//  AclItem();
-//  switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-//  case BRACE:
-//      ;
-//      break;
-//  default:
-//      jj_la1[3] = jj_gen;
-//      break label_1;
-//   }
-//  }
-    public static void main(String[] args) {
-        String[] jj_la1 = {"a","b","c","d"};
-        String jj_gen = "jj_gen";
-        System.out.println("Now jj_la1[3] = " + jj_la1[3]);
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter param: ");
-        int jj_ntk = sc.nextInt();
 
-        boolean flag = true;
-        while (flag) {
-            AclItem();
-            switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {     //логическое_условие ? выражение1 : выражение2    jj_ntk
-                case BRACE:
-                    break;
-                default:
-                    jj_la1[3] = jj_gen;
-                    System.out.println("Now jj_la1[3] = " + jj_la1[3]);
-                    flag = false;
+/**
+ * The Java Development Kit includes a file src.zip with the source code of the Java library.
+ * Unzip and, with your favorite text search tool, find usages of the labeled break and continue sequences.
+ * Take one and rewrite it without a labeled statement.
+ */
+
+public class Continue {
+
+    private static final String NOFOLLOW_LINKS = "test";
+
+    public static void main(String[] args) {
+        String array[] = new String[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Insert array elements: ");
+        for (int i = 0; i < 3; i++)
+            array[i] = sc.nextLine();
+        System.out.println(followLinks(array));
+    }
+
+   private static boolean followLinks(String... options) {      //могут быть переданы ноль или более объектов String
+        boolean followLinks = true;
+        for (String opt: options) {     //opt переходит по всем options
+            System.out.println("Here");
+            if (opt.equals(NOFOLLOW_LINKS)) {
+                followLinks = false;
+                continue;
             }
+            if(opt.equals(""))
+            throw new AssertionError("Should not get here!!");
         }
-    }
-    private static void AclItem() {
-        System.out.println("AclItem func");
-    }
-    private static int jj_ntk() {
-        System.out.println("jj_ntk func");
-        return BRACE;
+        return followLinks;
     }
 }
 
-/*if (age > 14) {
-        access = true;
-        } else {
-        access = false;
-        }*/
+//    private static boolean followLinks(LinkOption... options) {
+//        boolean followLinks = true;
+//        for (LinkOption opt: options) {
+//            if (opt == LinkOption.NOFOLLOW_LINKS) {
+//                followLinks = false;
+//                continue;
+//            }
+//            if (opt == null)
+//                throw new NullPointerException();
+//            throw new AssertionError("Should not get here");
+//        }
+//        return followLinks;
+//    }
