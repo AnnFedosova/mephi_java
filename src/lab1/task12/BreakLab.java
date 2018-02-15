@@ -1,7 +1,7 @@
 package lab1.task12;
 
 import java.util.Scanner;
-public class Continue {
+public class BreakLab {
     private static final int BRACE = 30;
     // label_1:
 // while (true) {
