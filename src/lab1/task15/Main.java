@@ -11,15 +11,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt() - 1;   //кол-во уровней треугольника
         ArrayList<ArrayList<Integer>> trangle = new ArrayList<>();
-        ArrayList<Integer> level = new ArrayList<>();
         for (int i = 0; i <= n; i++) {
+            ArrayList<Integer> level = new ArrayList<>();
             level.clear();
             for (int j = 0; j <= i; j++)
                 level.add(factorial(i) / (factorial(j) * factorial(i - j)));
             System.out.println(level);
             trangle.add(level);
             }
-        for (int i = 0; i <= trangle.size(); i++) {
+        for (int i = 0; i < trangle.size(); i++) {
             System.out.println(trangle.get(i));
         }
     }
