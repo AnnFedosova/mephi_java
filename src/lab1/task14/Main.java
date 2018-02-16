@@ -19,8 +19,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter square:");
         String str = sc.nextLine();
-
+        if (str.isEmpty()) throw new NullPointerException("Empty Array");
         ArrayList<String[]> twoDimArray = new ArrayList<>();
         twoDimArray.add(str.split(" "));
         int n = twoDimArray.get(0).length;   //размерность матрицы
@@ -37,8 +38,49 @@ public class Main {
             System.out.println();
         }
         //проверка на магичность
+        // находим магическое число для сумм
+        int magicSum = 0;
+        for (int j = 0; j < n; j++)
+            magicSum += Integer.parseInt(twoDimArray.get(0)[j]);
+        System.out.println("Possible magic number is " + magicSum);
+        boolean magicFlag = true;
+        //1. строки
         for (int i = 0; i < n; i++) {
-
+            int sum = 0;
+            for (int j = 0; j < n; j++)
+                sum += Integer.parseInt(twoDimArray.get(i)[j]);
+            if (sum != magicSum) {
+                magicFlag = false;
+                break;
+            }
         }
+        //2. столбы
+        if(magicFlag){
+            for (int i = 0; i < n; i++) {
+                int sum = 0;
+                for (int j = 0; j < n; j++)
+                    sum += Integer.parseInt(twoDimArray.get(j)[i]);
+                if (sum != magicSum) {
+                    magicFlag = false;
+                    break;
+                }
+            }
+        }
+        //3. диагонали
+        if(magicFlag) {
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+                sum += Integer.parseInt(twoDimArray.get(i)[i]);
+            if (sum != magicSum)
+                magicFlag = false;
+        }
+        if (magicFlag){
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+                sum += Integer.parseInt(twoDimArray.get(i)[n - 1 - i]);
+            if (sum != magicSum)
+                magicFlag = false;
+        }
+        System.out.println((magicFlag) ? "Magic!" : "No magic!");
     }
 }
