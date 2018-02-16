@@ -25,17 +25,20 @@ public class Main {
         twoDimArray.add(str.split(" "));
         int n = twoDimArray.get(0).length;   //размерность матрицы
         //System.out.println(n);
-        for (int i = 1; i < n; i++){
+        for (int i = 1; i < n; i++) {
             str = sc.nextLine();
-            if("".equals(str))
+            if ("".equals(str))
                 throw new NullPointerException("Wrong number of lines");
             twoDimArray.add(str.split(" "));
         }
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++)
                 System.out.print(twoDimArray.get(i)[j] + " ");
             System.out.println();
         }
+        //проверка на магичность
+        for (int i = 0; i < n; i++) {
 
+        }
     }
 }
