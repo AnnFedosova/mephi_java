@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first number: ");
-        int change = 32767;
+        int change = 32768;
         short num1 = (short) (sc.nextInt() - change);
         System.out.println("Enter second number: ");
         short num2 = (short) (sc.nextInt() - change);
