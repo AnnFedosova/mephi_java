@@ -11,10 +11,12 @@ public class Main {
         String str =  sc.nextLine();
         while (str.contains("  "))
             str = str.replace("  "," ");
-        //печать без пробелов
-        System.out.println(str.replace(" " , ""));
-        //печать отдельных слов
-        for(int i = 0; i < (str.split(" ")).length; i++)
-            System.out.println((str.split(" "))[i] + "\n");
+        if (str.startsWith(" "))
+            str = str.substring(1);
+        if (str.endsWith(" "))
+            str=str.substring(0,str.length()-1);
+        System.out.println(str.replace(" " , ""));         //печать без пробелов
+        for(int i = 0; i < (str.split(" ")).length; i++)              //печать отдельных слов
+            System.out.println((str.split(" "))[i]);
     }
 }

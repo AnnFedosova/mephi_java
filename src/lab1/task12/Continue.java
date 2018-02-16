@@ -23,14 +23,17 @@ public class Continue {
 
    private static boolean followLinks(String... options) {      //могут быть переданы ноль или более объектов String
         boolean followLinks = true;
+        boolean flag;
         for (String opt: options) {     //opt переходит по всем options
+            flag = true;
             System.out.println("Here");
             if (opt.equals(NOFOLLOW_LINKS)) {
                 followLinks = false;
-                continue;
+                //continue;
+                flag = false;
             }
-            if(opt.equals(""))
-            throw new AssertionError("Should not get here!!");
+            if(opt.equals("") & flag )
+                throw new AssertionError("Should not get here!!");
         }
         return followLinks;
     }
