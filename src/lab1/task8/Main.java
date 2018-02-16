@@ -9,8 +9,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str =  sc.nextLine();
+        while (str.contains("  "))
+            str = str.replace("  "," ");
         //печать без пробелов
-        System.out.println(str.replace(" ",""));
+        System.out.println(str.replace(" " , ""));
         //печать отдельных слов
         for(int i = 0; i < (str.split(" ")).length; i++)
             System.out.println((str.split(" "))[i] + "\n");
