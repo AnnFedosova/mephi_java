@@ -9,20 +9,23 @@ import java.util.Scanner;
  * and remainder (остаток), without converting them to int.
  */
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter first number: ");
-        short num1 = sc.nextShort();
+        int change = 32767;
+        short num1 = (short) (sc.nextInt() - change);
         System.out.println("Enter second number: ");
-        short num2 = sc.nextShort();
+        short num2 = (short) (sc.nextInt() - change);
 
-        System.out.println("Sum: " + (num1 + num2));
-        System.out.println("Difference: " + (num1 - num2));
-        System.out.println("Quotient: " + (num1 / num2));
-        System.out.println("Remainder: " + (num1 % num2));
+        System.out.println("Sum: " + (num1+ change + num2 + change));
+        System.out.println("Difference: " + (num1 + change - num2 - change));
+        System.out.println("Product: " + ((num1 + change)*(num2 + change)));
+        System.out.println("Quotient: " + ((num1 + change) / (num2 + change)));
+        System.out.println("Remainder: " + ((num1 + change) % (num2 + change)));
+    }
+}
 
         /*Integer i = 9 ;//= new Integer();
         if( i instanceof Integer )
             System.out.println("TRUE " + i);*/
-    }
-}
