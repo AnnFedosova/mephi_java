@@ -1,4 +1,4 @@
-package lab2.task5;
+package lab2.task6;
 
 public class Point {
     private double x;
@@ -17,10 +17,14 @@ public class Point {
     public double getY(){ return y;}
 
     public Point translate(double a, double b){
-        return new Point(x + a, y+ b);
+        this.x += a;
+        this.y += b;
+        return this;
     }
     public Point scale(double a){
-        return new Point(x * a, y * a);
+        this.x = this.x * a;
+        this.y = this.y * a;
+        return this;
     }
     public void printPoint(){
         System.out.println("X: " + getX());
