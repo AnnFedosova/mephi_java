@@ -2,6 +2,8 @@ package lab2.task6;
 
 /**
  * Repeat the preceding exercise, but now make translate and scale into mutators.
+ * @author Anna
+ * @version 1.0
  */
 public class Main {
     public static void main(String[] args) {

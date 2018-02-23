@@ -1,5 +1,10 @@
 package lab2.task5;
 
+/**
+ * Class Point describes a point in the plane.
+ * @author Anna
+ * @version 1.0
+ */
 public class Point {
     private double x;
     private double y;
