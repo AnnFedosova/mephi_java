@@ -7,23 +7,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string: ");
         String str =  sc.nextLine();
-        System.out.println(str);
-        /*while (str.contains("  "))
-            str = str.replace("  "," ");
-        if (str.startsWith(" "))
-            str = str.substring(1);
-        if (str.endsWith(" "))
-            str=str.substring(0,str.length()-1);
-        System.out.println(str.replace(" " , ""));         //печать без пробелов
-        for(int i = 0; i < (str.split(" ")).length; i++)              //печать отдельных слов
-            System.out.println((str.split(" "))[i]);
-            */
-        //String[] arr = str.split(" ");
+        System.out.println("Enter int: ");
+        int maxLen =  sc.nextInt();
         int len = str.length();
         for (int i = 0; i < len; i++) {
-            for (int j = i; j <= len; j++)
+            for (int j = i + 1; j <= len; j++) {
+                if (str.substring(i, j).length() > maxLen)
+                    break;
                 System.out.println(str.substring(i, j));
+            }
         }
     }
 }
