@@ -1,7 +1,7 @@
 package lab2.task16;
 
 //Неограниченная очередь строк
-public class Queue {
+class Queue {
     private Node head;
     private Node tail;
 
@@ -23,7 +23,7 @@ public class Queue {
         tail = null;
     }
     //Добавление узла в конец очереди
-    public Node addNode(String str){
+    public void addNode(String str){
         Node newNode = new Node();
         if (tail == null) {
             head = newNode;
@@ -37,7 +37,18 @@ public class Queue {
         newNode.string = str;
         newNode.nextNode = null;
         tail = newNode;
-        return newNode;
+        //return newNode;
+    }
+
+    public void removeFirst(){
+        if(head.nextNode != null){
+            head = head.nextNode;
+            head.previousNode = null;
+        }
+        else {
+            head = null;
+            tail = null;
+        }
     }
 
     public void printQueue(){
