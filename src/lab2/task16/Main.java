@@ -19,7 +19,6 @@ public class Main {
         queue.removeFirst();
         queue.addNode("fff");
 
-
         queue.printQueue();
     }
 }
