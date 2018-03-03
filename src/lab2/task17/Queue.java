@@ -21,7 +21,7 @@ class Queue {
 
         public Iterator(){}
 
-        public boolean hasNext(Node node){
+        public  boolean hasNext(Node node){
             return node.nextNode != null;
         }
 

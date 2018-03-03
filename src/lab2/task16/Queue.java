@@ -51,6 +51,46 @@ class Queue {
         }
     }
 
+    //сдача 2 лабы. удаление элемента по значению cтроки
+    public boolean removeNode(Node node){
+        if (node == null)
+            return false;
+        if (node == head)
+            removeFirst();
+        else if(node == tail){
+            tail = tail.previousNode;
+            tail.nextNode = null;
+        }
+        else {
+            node.previousNode.nextNode = node.nextNode;
+            node.nextNode.previousNode = node.previousNode;
+        }
+        return true;
+    }
+
+    public boolean removeStr(String string) {
+        return removeNode(foundNode(string));
+    }
+
+    public Node foundNode(String string){
+        Node curNode = new Node();
+        curNode = head;
+        while (curNode != null && curNode.nextNode != null){
+            if (curNode.string.equals(string))
+                return curNode;
+            else {
+                curNode = curNode.nextNode;
+            }
+        }
+        if (curNode == null)
+            return null;
+        if (curNode.nextNode == null) {
+            if (curNode.string.equals(string))
+                return curNode;
+        }
+        return null;
+    }
+
     public void printQueue(){
         Node elem = head;
         while (elem != null) {

@@ -12,12 +12,9 @@ public class Main {
         Queue queue = new Queue();
         queue.addNode("abracadabra");
         queue.addNode("aaaaaaaa");
-        queue.addNode("dddd");
-
-        queue.removeFirst();
-        queue.removeFirst();
-        queue.removeFirst();
+        queue.addNode("aaaaaaaa");
         queue.addNode("fff");
+        queue.removeStr("abracadabra");
 
         queue.printQueue();
     }

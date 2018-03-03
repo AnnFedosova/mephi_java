@@ -4,7 +4,7 @@ package lab2.task8;
  * In the preceding exercises, providing the constructors and getter methods of the Point class was rather repetitive.
  * Most IDEs provide shortcuts for writing the boilerplate code. What does your IDE offer?
  */
-public class Main {
+/*public class Main {
     public static void main(String[] args) {
         MyClass myClass = new MyClass(7);
     }
@@ -19,18 +19,5 @@ public class Main {
         public int getB() {
             return b;
         }
-
-        public void setA(int a) {
-            this.a = a;
-        }
-
-        public void setB(int b) {
-            this.b = b;
-        }
-
-        public MyClass(int a) {
-            this.a = a;
-        }
-
     }
-}
+}*/
