@@ -18,15 +18,17 @@ class Queue {
     }
 
     class Iterator{
-
-        public Iterator(){}
-
-        public  boolean hasNext(Node node){
-            return node.nextNode != null;
+        private Node nextNode;
+        public Iterator(){
+            nextNode = head;
         }
 
-        public Node next(Node node){
-            return node.nextNode;
+        public  boolean hasNext(){
+            return nextNode != null;
+        }
+
+        public Node next(){
+            return nextNode;
         }
 
     }

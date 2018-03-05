@@ -17,8 +17,8 @@ public class Main {
         //сделаем экземпляр итератора и посмотрим, есть ли у головы следующий элемент
         System.out.println(queue.Iterator().hasNext(queue.getHead()));
         //а следующий элемент у следующего элемента?
-        Queue.Iterator iterator = queue.Iterator();
-        System.out.println(iterator.hasNext(iterator.next(queue.getHead())));
+        //Queue.Iterator iterator = queue.Iterator();
+        //System.out.println(iterator.hasNext(iterator.next(queue.getHead())));
 
         queue.printQueue();
 
