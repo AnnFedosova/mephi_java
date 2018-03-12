@@ -16,6 +16,6 @@ public class Main {
         empArray[2] = employee2;
 
         System.out.println(((Employee) Measurable.largest(empArray)).getName());
-        //нужно преобразование из супертипа
+        //нужно преобразование из супертипа в подтип Employee, тк там есть метод getName
     }
 }
