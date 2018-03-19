@@ -13,4 +13,11 @@ package lab3.task6;
  *  What happens when remove is called on an instance of your class?
  */
 public class Main {
+    public static void main(String[] args) {
+        DigitSequence digitSequence = new DigitSequence();
+        System.out.println(digitSequence.testParam);
+        digitSequence.remove();
+        System.out.println(digitSequence.testParam);
+    }
 }
+
