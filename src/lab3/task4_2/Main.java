@@ -7,6 +7,10 @@ package lab3.task4_2;
  */
 public class Main {
     public static void main(String[] args) {
+        IntSequence sequence = IntSequence.of(1,2,3,4,5);
 
+        while (sequence.hasNext()) {
+            System.out.println(sequence.next());
+        }
     }
 }

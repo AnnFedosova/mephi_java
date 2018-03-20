@@ -1,38 +1,60 @@
 package lab3.task3;
 
 import javax.imageio.stream.ImageOutputStream;
-import java.util.Scanner;
+import java.util.*;
+
 /**
- *  What are all the supertypes of String? Of Scanner? Of ImageOutputStream?
- *  Note that each type is its own supertype.
- *  A class or interface without declared supertype has supertype Object.
+ * What are all the supertypes of String? Of Scanner? Of ImageOutputStream? Note that each type is its own supertype.
+ * A class or interface without declared supertype has supertype Object.
  */
 public class Main {
     public static void main(String[] args) {
-        //Тест на своих классах
-        MySecondClass mySecondClass = new MySecondClass();
-        System.out.println(mySecondClass.getClass().getSuperclass());
-        //в объявлении:
-        //public interface ImageOutputStream extends ImageInputStream, DataOutput {
-        //ImageInputStream, DataOutput - суперкласс
-        System.out.println(Object.class.getSuperclass());
-        System.out.println(Scanner.class.getClass().getSuperclass());
-        System.out.println(ImageOutputStream.class.getClass().getSuperclass());
-
-        printSuperClass(String.class.getSuperclass());
+        Set<Class> stringTypes = getGeneralizations(String.class);
+        System.out.println("------- " + String.class.getName() + " -------");
+        printSet(stringTypes);
+        Set<Class> scannerTypes = getGeneralizations(Scanner.class);
+        System.out.println("\n------- " + Scanner.class.getName() + " -------");
+        printSet(scannerTypes);
+        Set<Class> imageOutputStreamTypes = getGeneralizations(ImageOutputStream.class);
+        System.out.println("\n------- " + ImageOutputStream.class.getName() + " -------");
+        printSet(imageOutputStreamTypes);
     }
 
-    public static void printSuperClass(Class cl){
-        Class SubClass = cl;
-        System.out.println("supertypes of " + SubClass.getName());
-        String str;
-        while (true){
-            str = SubClass.getSuperclass().toString();
-            if (str == null)
-                break;
-            System.out.println(str);
-            SubClass = cl.getClass().getSuperclass();
+    private static Class[] getSuperInterfaces(Class[] childInterfaces) {
+
+        List<Class> allInterfaces = new ArrayList<Class>();
+
+        for (Class childInterface : childInterfaces) {
+            allInterfaces.add(childInterface);
+            allInterfaces.addAll(
+                    Arrays.asList(
+                            getSuperInterfaces(childInterface.getInterfaces())));
+        }
+
+        return (Class[]) allInterfaces.toArray(new Class[allInterfaces.size()]);
+    }
+
+    private static Set<Class> getGeneralizations(Class classObject) {
+        Set<Class> generalizations = new HashSet<>();
+
+        generalizations.add(classObject);
+
+        Class superClass = classObject.getSuperclass();
+        if (superClass != null) {
+            generalizations.addAll(getGeneralizations(superClass));
+        }
+
+        Class[] superInterfaces = classObject.getInterfaces();
+        for (Class superInterface : superInterfaces) {
+            generalizations.addAll(getGeneralizations(superInterface));
+        }
+
+        return generalizations;
+    }
+
+    private static void printSet(Set<Class> set) {
+        for (Object obj: set) {
+            System.out.println(obj);
         }
     }
-
 }
