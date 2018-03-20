@@ -7,8 +7,9 @@ public interface Measurable {
         int maxSelNum = 0;
         int i = 0;
         for (Measurable object : objects){
-            if (object.getMeasure() > objects[maxSelNum].getMeasure())
+            if (object.getMeasure() > objects[maxSelNum].getMeasure()){
                 maxSelNum = i;
+            }
             i++;
         }
         return objects[maxSelNum];
