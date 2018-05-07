@@ -3,7 +3,7 @@ package lab4.task9;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-/**todo спросить у Жени
+/**todo спросить у Жени и прокси
  * Write a “universal” toString method that uses reflection to yield a string with all instance variables of an object.
  * Extra credit if you can handle cyclic references.
  *
