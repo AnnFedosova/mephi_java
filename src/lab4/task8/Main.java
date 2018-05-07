@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
         int[] arr = new int[10];
 
-        //TODO уточнить вывод для массива, что можно, кроме  HashMap
         System.out.println("Array:");
         System.out.println("getCanonicalName = " + arr.getClass().getCanonicalName());
         System.out.println("getSimpleName = " + arr.getClass().getSimpleName());

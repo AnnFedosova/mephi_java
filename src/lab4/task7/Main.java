@@ -6,7 +6,6 @@ package lab4.task7;
  */
 public class Main {
     public static void main(String[] args) {
-        //TODO спросить у Жени, зачем нужно это все
         System.out.println(Color.getRed() + " " + Color.getGreen() + " " + Color.getBlue());
         for(Color color: Color.values())
             System.out.println(color + " " + color.description + " " + color.description2);
