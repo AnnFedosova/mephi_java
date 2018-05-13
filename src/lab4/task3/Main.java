@@ -8,5 +8,6 @@ public class Main {
     public static void main(String[] args) {
         LabeledPoint labeledPoint = new LabeledPoint(1,2,"cat");
         System.out.println(labeledPoint.x);
+
     }
 }

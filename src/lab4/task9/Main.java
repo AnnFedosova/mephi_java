@@ -3,7 +3,7 @@ package lab4.task9;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-/**todo спросить у Жени и прокси
+/**
  * Write a “universal” toString method that uses reflection to yield a string with all instance variables of an object.
  * Extra credit if you can handle cyclic references.
  *
@@ -23,7 +23,7 @@ public class Main {
     }
 
     public static String toString(Object object) throws IllegalAccessException {
-        if (startPoint == null) {
+        if (startPoint == null) { //объект, для которого изначально вызываем метод. Против зацикливания
             startPoint = object;
         }
         else if (startPoint == object) {
@@ -31,15 +31,15 @@ public class Main {
             return "";
         }
         Class<?> currentClass = object.getClass();
-        StringBuilder string = new StringBuilder("");
+        StringBuilder string = new StringBuilder(""); // как просто string, но не создается новый объект, а меняется этот
         do {
             //string.append(currentClass.getName()).append(":\n");
             for (Field field : currentClass.getDeclaredFields()) {
-                field.setAccessible(true);
+                field.setAccessible(true); // доступ
                 if (!Modifier.isStatic(field.getModifiers())) {
-                    Object value = field.get(object);
+                    Object value = field.get(object); // брать только поля объекта, не только статик класса
                     if (value != null) {
-                        if (!currentClass.isInstance(value)) {
+                        if (!currentClass.isInstance(value)) { //тип класса такой же-> цикл
                             string.append(field.getName()).append(" = ").append(value).append(";\n");
                         } else {
                             string.append(toString(value));

@@ -22,7 +22,7 @@ public class Main {
         long before = System.nanoTime();
         Object value = null;
         for (int i = 0; i < n; i++) {
-            value = method.invoke(null, 91);
+            value = method.invoke(null, 91); //todo почему  null, в каких случаях нет. обобщить
         }
         System.out.println("Value = " + value);
         long after = System.nanoTime();

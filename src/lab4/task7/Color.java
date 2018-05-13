@@ -1,60 +1,58 @@
 package lab4.task7;
 
 public enum Color {
-    BLACK,
-    RED,
-    BLUE,
-    GREEN,
-    CYAN,
-    MAGENTA,
-    YELLOW("lemony", "description2_for_lemony"),
-    WHITE("snow-white");
+    RED(1),
+    BLUE(2),
+    WHITE(3);
 
-    String description;
-    String description2;
+    private int value;
+
+    Color(/*final*/ int value)
+    {
+        this.value = value;
+    }
+//todo
+    public String toString()
+    {return "" + value;}
+
+    public String getRed()
+    {return toString();}
+
+   /* int red = 9;
+    int blue = 8;
+    int white = 8;
+    */
+
+    /*
+    Color() {
+        red = 0;
+        blue = 0;
+        white = 0;}
+*/
+
+    /*Color(int redParam, int blueParam, int whiteParam) {
+        red = redParam;
+        blue = blueParam;
+        white = whiteParam;
+    }*/
 
 
-    Color(String s) {
-        description = s;
+
+  /*  public int getBlue(){
+        return blue;
     }
 
-    Color() {}
+    public int getWhite(){
+        return white;
+    }
+*/
+    /*Color(String s) {
+        description = s;
+    }
 
     Color(String s, String s2) {
         description = s;
         description2 = s2;
-    }
-
-    public static Color getRed(){
-        return RED;
-    }
-
-    public static Color getGreen(){
-        return GREEN;
-    }
-
-    public static Color getBlue(){
-        return BLUE;
-    }
-
-
-
-
-   /* String color;
-
-    Color(String color) {
-        this.color = color;
-    }
-
-    public Color getGreen(){
-        return Color.GREEN;
-    }
-
-    public Color getRed(){
-        return Color.RED;
-    }
-    public Color getBlue(){
-        return Color.BLUE;
     }*/
 
 
