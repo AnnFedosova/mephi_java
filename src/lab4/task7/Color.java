@@ -1,59 +1,40 @@
 package lab4.task7;
 
 public enum Color {
-    RED(1),
-    BLUE(2),
-    WHITE(3);
+    BLACK(0, 0, 0),
+    RED(255, 0, 0),
+    BLUE(0, 0, 255),
+    GREEN(0, 255, 0),
+    CYAN(0, 255, 255),
+    MAGENTA(255, 0, 255),
+    YELLOW(255, 255, 0),
+    WHITE(255, 255, 255);
 
-    private int value;
 
-    Color(/*final*/ int value)
+    private int red;
+    private int green;
+    private int blue;
+
+    Color( int red, int green, int blue)
     {
-        this.value = value;
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
     }
-//todo
-    public String toString()
-    {return "" + value;}
 
-    public String getRed()
-    {return toString();}
+    public int getRed()
+    {
+        return red;
+    }
 
-   /* int red = 9;
-    int blue = 8;
-    int white = 8;
-    */
+    public int getGreen()
+    {
+        return green;
+    }
 
-    /*
-    Color() {
-        red = 0;
-        blue = 0;
-        white = 0;}
-*/
-
-    /*Color(int redParam, int blueParam, int whiteParam) {
-        red = redParam;
-        blue = blueParam;
-        white = whiteParam;
-    }*/
-
-
-
-  /*  public int getBlue(){
+    public int getBlue()
+    {
         return blue;
     }
-
-    public int getWhite(){
-        return white;
-    }
-*/
-    /*Color(String s) {
-        description = s;
-    }
-
-    Color(String s, String s2) {
-        description = s;
-        description2 = s2;
-    }*/
-
 
 }
