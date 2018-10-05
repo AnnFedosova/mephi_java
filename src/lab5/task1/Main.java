@@ -3,6 +3,7 @@ package lab5.task1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static java.lang.Double.parseDouble;
@@ -17,35 +18,38 @@ import static java.lang.Integer.parseInt;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ArrayList <Double> arrayList = null;
         //попробуем прочииать Double из файла
         try {
-            arrayList = readValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile");
-            //arrayList = readValues("anotherFile");
+            arrayList = readValues(null);
+
+            //arrayList = readValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile2");
         }
 
         catch (FileNotFoundException e){
-            System.out.println("1 Ошибка при открытии файла: " +  e.toString());
+            throw new FileNotFoundException();
         }
         catch (IllegalArgumentException e){
-            System.out.println("2 Ошибка при чтении из файла, плохие данные: " +  e.toString());
+            throw new IllegalArgumentException();
+        }
+        catch (InputMismatchException e){
+            throw new InputMismatchException();
         }
         catch (Exception e){
-            System.out.println("3 Другая ошибка:" + e.toString());
+            throw new Exception();
         }
             System.out.print("The End");
     }
 
-    private static ArrayList <Double> readValues(String fileName) throws NullPointerException, FileNotFoundException {
+    public static ArrayList <Double> readValues(String fileName) throws IllegalArgumentException, FileNotFoundException {
+        if(fileName == null || fileName.isEmpty()) throw new IllegalArgumentException();
         ArrayList <Double>  arrayList = new ArrayList<>();
-        Scanner scanner = new Scanner(new File(fileName)); //FileNotFoundException
-        while(scanner.hasNextLine()) {
-        //while(scanner.hasNextDouble()) { так не будет ошибки, если в файле буквы. Но мы хотим ее увидеть
-            boolean add = arrayList.add(parseDouble(scanner.nextLine()));
-            System.out.println("add " + add);
+        try (Scanner scanner = new Scanner(new File(fileName))) {
+            while (scanner.hasNext()) {
+                boolean add = arrayList.add(scanner.nextDouble());
+            }
+            return arrayList;
         }
-
-        return arrayList;
     }
 }
