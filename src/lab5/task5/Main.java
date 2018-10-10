@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -13,55 +15,57 @@ import java.util.stream.Stream;
  * Но вместо оператора try с ресурсами воспользуйтесь оператором catch.
  * Непременно закройте оба объекта, при условии, что они построены надлежащим образом.
  *
- * Для этого вам придется принять во внимание следующие условия.
- * • Конструктор класса Scanner генерирует исключение.
- * • Конструктор класса PrintWriter генерирует исключение.
- * • Метод hasNext(), next() или println() генерирует исключение.
- * • Метод out.close() генерирует исключение.
- * • Метод in.close() генерирует исключение.
  */
 public class Main {
     public static void main(String[] args) {
         Scanner in = null;
-        PrintWriter printWriter = null;
-        boolean fileIsOpen = false;
+        PrintWriter out = null;
         try {
-            //throw new Exception("ff");
-            String str = "";
-            in = new Scanner(System.in);
-            System.out.println("Scanner открыт;");
-            String oneStr = "";
-            while (in.hasNext()){
-                oneStr = in.next();
-                str += oneStr + "\n";
-                if(oneStr.equals("exit")) {
-                    break;
-                }
-            }
 
-            printWriter = new PrintWriter("C:\\Development\\mephi_java\\src\\lab5\\task5\\file");
-            System.out.println("PrintWriter открыт;");
-            fileIsOpen = true;
-            Date date = new Date();
-            printWriter.println("Сегодня " + date);
-            printWriter.println(str);
-            System.out.println("Write to the file successfully");
+            in = new Scanner(Paths.get("C:\\Development\\mephi_java\\src\\lab5\\task5\\inFile"));
+            System.out.println("Scanner открыт.");
+
+            out = new PrintWriter("C:\\Development\\mephi_java\\src\\lab5\\task5\\outFile");
+            System.out.println("PrintWriter открыт.");
+
+            while (in.hasNext()){
+                out.println(in.next().toLowerCase());
+            }
+            System.out.println("Write to the outFile successfully");
         } catch (FileNotFoundException e) {
-            System.out.println("Поймали ошибку " + e.getMessage());
-            e.printStackTrace();
+            System.err.println("Внимание ошибка! FileNotFoundException" + e.getMessage());
+        } catch (NoSuchFileException e) {
+            System.err.println("Внимание ошибка! Неправильное имя файла " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.err.println("Внимание ошибка! NullPointerException" + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Ошибкааа :(");
-            e.printStackTrace();
+            System.err.println("Ошибкааа :(");
         }
         finally {
+            try{
             if (in != null){
                 in.close();
-                System.out.println("Закрыли Scanner;");
+                System.out.println("Закрыли Scanner.");
+            }} catch (Exception e){
+                System.err.println("Ошибка при закрытии Scanner");
             }
-            if (fileIsOpen) {
-                printWriter.close();
-                System.out.println("Закрыли PrintWriter;");
+            try{if (out != null) {
+                out.close();
+                System.out.println("Закрыли PrintWriter.");
+            }}catch (Exception e){
+                System.err.println("Ошибка при закрытии PrintWriter");
             }
         }
     }
 }
+
+/*
+ try (Scanner in = new Scanner(Paths.get("/usr/share/dict/words"));
+  PrintWriter out = new PrintWriter("output.txt"))
+  {
+   while (in.hasNext())
+        out.printIn(in.next().toLowerCase());
+    }
+
+
+*/
