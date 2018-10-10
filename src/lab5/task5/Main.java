@@ -1,14 +1,10 @@
 package lab5.task5;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 /**
  * Реализуйте метод, содержащий код, где применяются классы Scanner и PrintWriter (см. раздел 5.1.5).
