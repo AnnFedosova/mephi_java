@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
+/** todo женя
  * В разделе 5.1.6 приведен пример ошибочного внедрения блока операторов catch и finally
  * в блок кода оператора try. Исправьте этот код,
  * во-первых, перехватив исключение в операторе finally,
