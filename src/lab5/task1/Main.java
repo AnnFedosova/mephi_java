@@ -22,12 +22,14 @@ public class Main {
         ArrayList <Double> arrayList = null;
         //попробуем прочииать Double из файла
         try {
-            arrayList = readValues(null);
+            //arrayList = readValues(null);
 
-            //arrayList = readValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile2");
+            arrayList = readValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile4");
         }
 
         catch (FileNotFoundException e){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
             throw new FileNotFoundException();
         }
         catch (IllegalArgumentException e){

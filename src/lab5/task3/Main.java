@@ -12,20 +12,6 @@ import static lab5.task2.Main.sumOfValues;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        try {
-            System.out.println(sumOfValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile1"));
-        }
-        catch (IllegalArgumentException e){
-            throw new IllegalArgumentException("Имя файла!");
-        }
-        catch (InputMismatchException e){
-            throw new InputMismatchException("Плохие данные в файле!");
-        }
-        catch (FileNotFoundException e){
-            throw new FileNotFoundException("Файл не найден!");
-        }
-        catch (Exception e){
-            throw new Exception("Неизвестное исключение!" + e.getMessage());
-        }
+        System.out.println(sumOfValues("C:\\Development\\mephi_java\\src\\lab5\\task1\\textFile1"));
     }
 }
