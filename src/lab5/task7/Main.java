@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Exception e1 = new Exception(" hello");
 
-        //todo проверить выполнение нижних двух строк.
+        //для сдачи нужно проверить выполнение нижних двух строк.
         //из приватного метода выкинуть e1
         Exception e2 = new Exception("msg"+e1.getMessage());
         Exception e3 = new Exception("msg",e1);
@@ -30,7 +30,7 @@ public class Main {
         //будет  Exception in thread "main" java.lang.Exception: msg
         //Caused by: java.lang.Exception:  hello
 
-        //todo из одного файла поток в другой файл. 1 try с ресурсами. 2 try finally
+        //для сдачи нужно из одного файла поток в другой файл. 1 try с ресурсами. 2 try finally
         method1();
 
     }
