@@ -6,7 +6,7 @@ class Stack<E> {
     private ArrayList<E> arrayList;
 
     Stack(){
-        arrayList = new ArrayList<>();
+        arrayList = new ArrayList<E>();
     }
 
     boolean push(E elem){
@@ -21,8 +21,14 @@ class Stack<E> {
         return arrayList.isEmpty();
     }
 
-    int length(){
-        return arrayList.size();
+    void showType(){
+        if (!this.isEmpty()) {
+            System.out.println("Type <E> is " + this.pop().getClass().getName());
+        }
+        else {
+            System.out.println("Stack is empty");
+        }
+
     }
 
 }

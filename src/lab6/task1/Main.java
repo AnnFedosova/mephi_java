@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Элементы в массиве типа String
-        /*
+
         Stack<String> stringStack = new Stack<>();
 
         if (stringStack.push("First is Dog") && stringStack.push("Second is Cat")) {
@@ -18,7 +18,8 @@ public class Main {
         if (!stringStack.isEmpty()) {
             System.out.println("last elem: " + stringStack.pop());
         }
-        */
+
+        stringStack.showType();
 
         //Элементы в массиве типа Integer
         Stack<Integer> integerStack = new Stack<>();
@@ -30,6 +31,8 @@ public class Main {
         if (!integerStack.isEmpty()) {
             System.out.println("last elem: " + integerStack.pop());
         }
+
+        stringStack.showType();
 
     }
 
