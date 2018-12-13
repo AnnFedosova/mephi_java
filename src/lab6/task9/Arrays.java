@@ -2,6 +2,8 @@ package lab6.task9;
 
 import lab6.task7.Pair;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Arrays<T>{
     ArrayList<T> array;
@@ -49,5 +51,27 @@ public class Arrays<T>{
         if (a.size() == 0 )
             return null;
         return new Pair<E>(Arrays.min(a), Arrays.max(a));
+    }
+
+    //для task12
+    public static <E> void minmax(List<E> elements, Comparator<? super E> comp, List<? super E> result) {
+        E minValue = elements.get(0);
+        E maxValue = elements.get(0);
+        for (int i = 1; i < elements.size(); i++) {
+            if (comp.compare(elements.get(i), minValue) < 0) {
+                minValue = elements.get(i);
+            } else if (comp.compare(elements.get(i), maxValue) > 0) {
+                maxValue = elements.get(0);
+            }
+        }
+        result.add(minValue);
+        result.add(maxValue);
+    }
+
+    //для task13
+    public static <T> void maxmin(List<T> elements, Comparator<? super T> comp, List<? super T> result) {
+        minmax(elements, comp, result);
+        //Lists.swapHelper(result, 0, 1);
+        //Lists.<T>swapHelper(result, 0, 1);
     }
 }
