@@ -6,7 +6,7 @@ package lab6.task13;
  * { minmax(elements, comp, result);
  *      Lists.swapHelper(result, 0, 1);
  * }
- *
+ * todo
  * Почему этот метод нельзя скомпилировать без захвата подстановки  wildcard ?
  * Подсказка: попробуйте предоставить явный тип Lists.<__>swapHelper(result, 0, 1).
  */
