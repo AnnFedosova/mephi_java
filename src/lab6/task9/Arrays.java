@@ -74,4 +74,14 @@ public class Arrays<T>{
         //Lists.swapHelper(result, 0, 1);
         //Lists.<T>swapHelper(result, 0, 1);
     }
+
+    //для task 21
+    //@SafeVarargs
+    @SuppressWarnings("unchecked")
+    public static List<String>[] construct(int i) {
+        List<String>[] lists = (List<String>[]) new Object[i];
+        return lists;
+    }
+    //Information:java: Recompile with -Xlint:unchecked for details.
+
 }
