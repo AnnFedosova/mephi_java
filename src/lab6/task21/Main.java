@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *  Используя аннотацию @SafeVarargs, напишите метод, позволяющий строить массивы обобщенных типов,
  *  как в следующем примере:
- * List<String>[] result = Arrays.<List<String»construct (10) ;
+ * List<String>[] result = Arrays.<List<String>>construct(10) ;
 
  */
 public class Main {

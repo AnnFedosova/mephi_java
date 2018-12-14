@@ -76,12 +76,16 @@ public class Arrays<T>{
     }
 
     //для task 21
-    //@SafeVarargs
-    @SuppressWarnings("unchecked")
-    public static List<String>[] construct(int i) {
-        List<String>[] lists = (List<String>[]) new Object[i];
+    @SafeVarargs
+    public static List<String>[] construct(int n, String... strings) {
+
+        List<String>[] lists = (List<String>[]) new Object[n];
+        for (List<String> list : lists) {
+            for (String string : strings) {
+                list.add(string);
+            }
+        }
         return lists;
     }
-    //Information:java: Recompile with -Xlint:unchecked for details.
 
 }
