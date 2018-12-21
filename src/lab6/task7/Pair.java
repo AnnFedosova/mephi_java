@@ -1,5 +1,7 @@
 package lab6.task7;
 
+import lab3.task14.Employee;
+
 public class Pair<E> {
     private E elem1;
     private E elem2;

@@ -2,7 +2,7 @@ package lab6.task5;
 
 import java.util.Arrays;
 
-/**
+/** todo проверить
  * Рассмотрите следующий вариант метода swap(), где массив может быть предоставлен с помощью аргументов переменной длины:
  * public static <Т> Т[] swap(int i, int j, T... values) { T temp = values[i];
  * values[i] = values [j]; values[j] = temp; return values;

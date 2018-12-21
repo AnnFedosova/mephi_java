@@ -31,8 +31,24 @@ public class Main {
         if (!integerStack.isEmpty()) {
             System.out.println("last elem: " + integerStack.pop());
         }
+        integerStack.showType();
 
-        stringStack.showType();
+        //todo Безопасность с дженериками:
+        //stringStack = integerStack;
+
+        ObjectStack stringObjectStack = new ObjectStack();
+
+        if (stringObjectStack.push("First is Dog") && stringObjectStack.push("Second is Cat")) {
+            System.out.println("Добавили элементы в stringObjectStack!");
+        }
+
+        ObjectStack integerObjectStack = new ObjectStack();
+
+        if (integerObjectStack.push(11) && integerObjectStack.push(22)) {
+            System.out.println("Добавили элементы в integerObjectStack!");
+        }
+
+        System.out.println((Integer) stringObjectStack.pop() );
 
     }
 

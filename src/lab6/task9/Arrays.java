@@ -8,6 +8,12 @@ import java.util.List;
 public class Arrays<T>{
     ArrayList<T> array;
 
+    //task25
+    public static String getSampleString(int a){
+        return "Sample String";
+    }
+
+
     public Arrays() {
         array = new ArrayList<T>();
     }
@@ -71,8 +77,9 @@ public class Arrays<T>{
     //для task13
     public static <T> void maxmin(List<T> elements, Comparator<? super T> comp, List<? super T> result) {
         minmax(elements, comp, result);
-        //Lists.swapHelper(result, 0, 1);
-        //Lists.<T>swapHelper(result, 0, 1);
+        //возник вопрос: что такое Lists
+        //Lists.swapHelper(result, 0, 1); //Почему этот метод нельзя скомпилировать без захвата подстановки
+        //Lists.<T>swapHelper(result, 0, 1); //попробуйте предоставить явный тип
     }
 
     //для task 21
@@ -88,4 +95,10 @@ public class Arrays<T>{
         return lists;
     }
 
-}
+    public static <T> void swap(T[] array, int i, int j) {
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        }
+
+    }

@@ -7,4 +7,7 @@ package lab6.task23;
  * throw (RuntimeException) ex?
  */
 public class Main {
+    public static void main(String[] args) {
+
+    }
 }
