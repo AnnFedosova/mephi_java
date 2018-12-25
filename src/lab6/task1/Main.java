@@ -33,7 +33,7 @@ public class Main {
         }
         integerStack.showType();
 
-        //todo Безопасность с дженериками:
+        //Безопасность с дженериками:
         //stringStack = integerStack;
 
         ObjectStack stringObjectStack = new ObjectStack();
@@ -48,7 +48,7 @@ public class Main {
             System.out.println("Добавили элементы в integerObjectStack!");
         }
 
-        System.out.println((Integer) stringObjectStack.pop() );
+        System.out.println(integerObjectStack.pop() );    //ошибка
 
     }
 
