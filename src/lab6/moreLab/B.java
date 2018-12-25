@@ -1,5 +1,5 @@
 package lab6.moreLab;
-
+//todo тут задание с листочка
 public class B {
 
     /*

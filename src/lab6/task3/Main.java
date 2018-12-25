@@ -15,10 +15,10 @@ import javafx.scene.control.Tab;
 public class Main {
     public static void main(String[] args) {
 
-        Table<Object, Object> Table1 = new Table<>();
-        Table1.add(new Entry<>(1, 100));
-        Table1.add(new Entry<>(2, 200));
-        Table1.add(new Entry<>(3 , "300" ));
+        TableNoGeneric Table1 = new TableNoGeneric();
+        Table1.add(new EntryNoGeneric(1, 100));
+        Table1.add(new EntryNoGeneric(2, 200));
+        Table1.add(new EntryNoGeneric(3 , "300" ));
 
         int sum = 0;
         for(int i = 0; i < Table1.size(); i++){
@@ -30,8 +30,6 @@ public class Main {
         Table2.add(new Entry<>(1, 100));
         Table2.add(new Entry<>(2, 200));
         //Table2.add(new Entry<>(3 , "300"));               //тут на этапе компиляции
-
-
     }
 
     /*task3
@@ -51,17 +49,18 @@ public class Main {
 
 /*
 
-//если не нужно было типизировать обджектами, то:
-        TableNoGeneric Table1 = new TableNoGeneric();
-        Table1.add(new EntryNoGeneric(1, 100));
-        Table1.add(new EntryNoGeneric(2, 200));
-        Table1.add(new EntryNoGeneric(3 , "300" ));
+Table<Object, Object> Table1 = new Table<>();
+        Table1.add(new Entry<>(1, 100));
+        Table1.add(new Entry<>(2, 200));
+        Table1.add(new Entry<>(3 , "300" ));
 
         int sum = 0;
         for(int i = 0; i < Table1.size(); i++){
             sum = sum + (Integer) Table1.getValueByNumber(i); //тут ошибка в рантайм
         }
         System.out.println("sum " + sum);
+
+
 
 * */
 
