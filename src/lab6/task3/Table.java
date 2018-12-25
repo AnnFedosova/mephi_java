@@ -16,6 +16,10 @@ class Table<K, V> {
         return arrayList.add(entry);
     }
 
+    int size(){
+        return arrayList.size();
+    }
+
     boolean removeByKey(K k){
         for (int i = 0; i < arrayList.size(); i++){
             if (arrayList.get(i).getKey() == k){
@@ -44,6 +48,10 @@ class Table<K, V> {
 
         }
         return null;
+    }
+
+    V getValueByNumber(int i){
+        return arrayList.get(i).getValue();
     }
 
     boolean isExists(K k){

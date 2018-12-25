@@ -1,5 +1,7 @@
 package lab6.task3;
 
+import javafx.scene.control.Tab;
+
 /**
  * Реализуйте обобщенный класс Table<K, V>, управляющий списочным массивом,
  * состоящим из элементов типа Entry<K, V>.
@@ -9,7 +11,30 @@ package lab6.task3;
  * установки значения по заданному ключу
  * и удаления ключа.
  */
+//todo Показать 2 варианта: 1 - ошибка в рантайм, 2 - ошибка при компиляции
 public class Main {
+    public static void main(String[] args) {
+
+        Table<Object, Object> Table1 = new Table<>();
+        Table1.add(new Entry<>(1, 100));
+        Table1.add(new Entry<>(2, 200));
+        Table1.add(new Entry<>(3 , "300" ));
+
+        int sum = 0;
+        for(int i = 0; i < Table1.size(); i++){
+            sum = sum + (Integer) Table1.getValueByNumber(i); //тут ошибка в рантайм
+        }
+        System.out.println("sum " + sum);
+
+        Table<Integer, Integer> Table2 = new Table<>();
+        Table2.add(new Entry<>(1, 100));
+        Table2.add(new Entry<>(2, 200));
+        //Table2.add(new Entry<>(3 , "300"));               //тут на этапе компиляции
+
+
+    }
+
+    /*task3
     public static void main(String[] args) {
         Table<Integer, String> table1 = new  Table<>();
         System.out.println(table1.add(new Entry<>(11, "cat")));
@@ -22,5 +47,23 @@ public class Main {
         table1.showTable();
 
         System.out.println(table1.getValueByKey(11) + " " + table1.getValueByKey(22));
-    }
+    }*/
+
+/*
+
+//если не нужно было типизировать обджектами, то:
+        TableNoGeneric Table1 = new TableNoGeneric();
+        Table1.add(new EntryNoGeneric(1, 100));
+        Table1.add(new EntryNoGeneric(2, 200));
+        Table1.add(new EntryNoGeneric(3 , "300" ));
+
+        int sum = 0;
+        for(int i = 0; i < Table1.size(); i++){
+            sum = sum + (Integer) Table1.getValueByNumber(i); //тут ошибка в рантайм
+        }
+        System.out.println("sum " + sum);
+
+* */
+
+
 }
