@@ -1,4 +1,8 @@
 package lab6.moreLab;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //todo тут задание с листочка
 public class B {
 
@@ -19,9 +23,52 @@ public class B {
         t.run();
     }
      */
-    <T extends Runnable> void b(A<T> a){
-        T t = a.b(1);
+    void b(A<? extends Runnable> a){
+        Runnable t = a.b(1);
         t.run();
+    }
+
+    //<T extends Runnable> void b1(A<T> a){
+      //  T t = a.b(1);
+        //t.run();
+    //}
+
+    //когда нельзя ?, можно только T: когда нужно несколько вх параметров
+    //нет ош
+    <T extends Runnable> void bNoQuestion2(A<T> a, A<T> a1){
+        Runnable t = a.b(1);
+        t.run();
+
+        List<A<T>> list = new ArrayList<>();
+        list.add(a);
+        list.add(a1);
+    }
+
+
+    //есть ош
+    void bNoQuestion(A<? extends  Runnable> a, A<? extends  Runnable> a1){
+        Runnable t = a.b(1);
+        t.run();
+
+        List<A<Runnable>> list = new ArrayList<>();
+        //list.add(a);
+        //list.add(a1);
+    }
+
+
+
+
+
+
+
+
+    //когда нельзя T, можно только ?: ? поддерживает как верхнюю так и нижнюю границу
+    //public <T super Integer> void addOneNo(List<T> list){
+
+    //}
+
+    public void addOne(List<? super Integer> list) {
+        list.add(1);
     }
 
     /*
@@ -44,3 +91,23 @@ public class B {
         return a.d(t);
     }
 }
+/*
+//нет ош
+    <T extends Runnable> void bNoQuestion2(A<T> a, A<T> a1){
+        Runnable t = a.b(1);
+        t.run();
+
+        List<A<T>> list = new ArrayList<>();
+        list.add(a);
+        list.add(a1);
+    }
+    //есть ош
+    void bNoQuestion(A<? extends  Runnable> a, A<? extends  Runnable> a1){
+        Runnable t = a.b(1);
+        t.run();
+
+        List<A<Runnable>> list = new ArrayList<>();
+        list.add(a);
+        list.add(a1);
+    }
+*/

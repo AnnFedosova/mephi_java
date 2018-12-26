@@ -15,21 +15,21 @@ import javafx.scene.control.Tab;
 public class Main {
     public static void main(String[] args) {
 
-        TableNoGeneric Table1 = new TableNoGeneric();
-        Table1.add(new EntryNoGeneric(1, 100));
-        Table1.add(new EntryNoGeneric(2, 200));
-        Table1.add(new EntryNoGeneric(3 , "300" ));
+        TableNoGeneric table1 = new TableNoGeneric();
+        table1.add(new EntryNoGeneric(1, 100));
+        table1.add(new EntryNoGeneric(2, 200));
+        table1.add(new EntryNoGeneric(3 , "300" ));
 
         int sum = 0;
-        for(int i = 0; i < Table1.size(); i++){
-            sum = sum + (Integer) Table1.getValueByNumber(i); //тут ошибка в рантайм
+        for(int i = 0; i < table1.size(); i++){
+            sum = sum + (Integer) table1.getValueByNumber(i); //тут ошибка в рантайм
         }
         System.out.println("sum " + sum);
 
-        Table<Integer, Integer> Table2 = new Table<>();
-        Table2.add(new Entry<>(1, 100));
-        Table2.add(new Entry<>(2, 200));
-        //Table2.add(new Entry<>(3 , "300"));               //тут на этапе компиляции
+        Table<Integer, Integer> table2 = new Table<>();
+        table2.add(new Entry<>(1, 100));
+        table2.add(new Entry<>(2, 200));
+        //table2.add(new Entry<>(3 , "300"));               //тут на этапе компиляции
     }
 
     /*task3
