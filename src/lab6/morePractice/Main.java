@@ -27,8 +27,14 @@ public class Main {
         CheckedOnWriteArrayList<Object> list2 =
                 new CheckedOnWriteArrayList<>(new ArrayList<>(), Integer.class);
         boolean b1 = list2.add(1);
+        boolean b2 = list2.add(44);
         list2.set(0, 99);
-        //list2.set(0, "87"); // тут ошибка рантайм
+        list2.set(1, 77);
+        list2.set(0, "87"); // тут ошибка рантайм
 
     }
 }
+
+
+//System.out.println(list2.set(0, "87"));
+// так сделать нельзя, если там интеджер в массиве
