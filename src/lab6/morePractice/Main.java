@@ -15,25 +15,20 @@ public class Main {
     public static void main(String[] args) throws Exception{
         //CheckedOnReadArrayList<T>
 
-        CheckedOnReadArrayList<Object> list1 = new CheckedOnReadArrayList<>(new ArrayList<Object>(), Number.class);
+        CheckedOnReadArrayList<Object> list1 =
+                new CheckedOnReadArrayList<>(new ArrayList<>(), Integer.class);
         boolean a0 = list1.add(11);
-        boolean a1 = list1.add(7L);
-        //boolean a2 = list.add("String");
+        boolean a2 = list1.add("String");
 
         System.out.println(list1.get(0));
-        System.out.println(list1.get(1));
-
-        System.out.println(list1.remove(1));
+        //System.out.println(list1.get(1)); // тут ошибка рантайм
 
         //CheckedOnWriteArrayList<T>
-        CheckedOnWriteArrayList<Object> list2 = new CheckedOnWriteArrayList<>(new ArrayList<Object>(), Integer.class);
-        boolean b1 = list2.add(16);
-        //boolean b2 = list2.add("90");
-
-        System.out.println(list2.set(0, 99));
-        System.out.println(list2.set(0, "87"));
-
-
+        CheckedOnWriteArrayList<Object> list2 =
+                new CheckedOnWriteArrayList<>(new ArrayList<>(), Integer.class);
+        boolean b1 = list2.add(1);
+        list2.set(0, 99);
+        //list2.set(0, "87"); // тут ошибка рантайм
 
     }
 }
